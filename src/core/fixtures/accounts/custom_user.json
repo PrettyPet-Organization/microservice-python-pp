@@ -1,0 +1,112 @@
+[
+    {
+        "model": "accounts.customuser",
+        "pk": 1,
+        "fields": {
+            "username": "User 1 username",
+            "email": "User 1 email",
+            "phone_number": "+70000000001",
+            "password": "User 1 password 12323retogrfbjdofw0r93w7e8tyudhj",
+            "code_word": "User 1 code word"
+        }
+    },
+    {
+        "model": "accounts.customuser",
+        "pk": 2,
+        "fields": {
+            "username": "User 2 username",
+            "email": "User 2 email",
+            "phone_number": "+70000000002",
+            "password": "User 2 password 12323retogrfbjdofw0r93w7e8tyudhj",
+            "code_word": "User 2 code word"
+        }
+    },
+    {
+        "model": "accounts.customuser",
+        "pk": 3,
+        "fields": {
+            "username": "User 3 username",
+            "email": "User 3 email",
+            "phone_number": "+70000000003",
+            "password": "User 3 password 12323retogrfbjdofw0r93w7e8tyudhj",
+            "code_word": "User 3 code word"
+        }
+    },
+    {
+        "model": "accounts.customuser",
+        "pk": 4,
+        "fields": {
+            "username": "User 4 username",
+            "email": "User 4 email",
+            "phone_number": "+70000000004",
+            "password": "User 4 password 12323retogrfbjdofw0r93w7e8tyudhj",
+            "code_word": "User 4 code word"
+        }
+    },
+    {
+        "model": "accounts.customuser",
+        "pk": 5,
+        "fields": {
+            "username": "User 5 username",
+            "email": "User 5 email",
+            "phone_number": "+70000000005",
+            "password": "User 5 password 12323retogrfbjdofw0r93w7e8tyudhj",
+            "code_word": "User 5 code word"
+        }
+    },
+    {
+        "model": "accounts.customuser",
+        "pk": 6,
+        "fields": {
+            "username": "User 6 username",
+            "email": "User 6 email",
+            "phone_number": "+70000000006",
+            "password": "User 6 password 12323retogrfbjdofw0r93w7e8tyudhj",
+            "code_word": "User 6 code word"
+        }
+    },
+    {
+        "model": "accounts.customuser",
+        "pk": 7,
+        "fields": {
+            "username": "User 7 username",
+            "email": "User 7 email",
+            "phone_number": "+70000000007",
+            "password": "User 7 password 12323retogrfbjdofw0r93w7e8tyudhj",
+            "code_word": "User 7 code word"
+        }
+    },
+    {
+        "model": "accounts.customuser",
+        "pk": 8,
+        "fields": {
+            "username": "User 8 username",
+            "email": "User 8 email",
+            "phone_number": "+70000000008",
+            "password": "User 8 password 12323retogrfbjdofw0r93w7e8tyudhj",
+            "code_word": "User 8 code word"
+        }
+    },
+    {
+        "model": "accounts.customuser",
+        "pk": 9,
+        "fields": {
+            "username": "User 9 username",
+            "email": "User 9 email",
+            "phone_number": "+70000000009",
+            "password": "User 9 password 12323retogrfbjdofw0r93w7e8tyudhj",
+            "code_word": "User 9 code word"
+        }
+    },
+    {
+        "model": "accounts.customuser",
+        "pk": 10,
+        "fields": {
+            "username": "User 10 username",
+            "email": "User 10 email",
+            "phone_number": "+70000000010",
+            "password": "User 10 password 12323retogrfbjdofw0r93w7e8tyudhj",
+            "code_word": "User 10 code word"
+        }
+    }
+]

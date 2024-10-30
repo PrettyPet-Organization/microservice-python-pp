@@ -138,3 +138,6 @@ dmypy.json
 .DS_Store
 # Logs
 logs/
+
+/.vscode/extensions.json
+/.vscode/settings.json

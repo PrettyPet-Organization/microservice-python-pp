@@ -23,3 +23,9 @@ class News(models.Model):
     tags = models.ForeignKey(
         to="Tag", on_delete=models.SET_NULL, null=True, verbose_name=_("Tags")
     )
+
+    # Correct display of category in an admin panel. Before displayed "newss"
+    class Meta:
+        verbose_name = "News"
+        verbose_name_plural = "News"
+    tags = models.ForeignKey(to="Tag", on_delete=models.SET_NULL, null=True, verbose_name=_("Tags"))

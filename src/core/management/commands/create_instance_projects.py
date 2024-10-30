@@ -8,6 +8,4 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         create_instance_projects()
-        self.stdout.write(
-            self.style.SUCCESS("Database has been populated with initial data.")
-        )
+        self.stdout.write(self.style.SUCCESS("Database has been populated with initial data."))

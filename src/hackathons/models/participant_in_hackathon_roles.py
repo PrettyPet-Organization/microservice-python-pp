@@ -11,9 +11,7 @@ class ParticipantInHackathonRoles(models.Model):
         verbose_name=_("participant"),
         on_delete=models.CASCADE,
     )
-    role = models.ForeignKey(
-        to=Role, null=True, on_delete=models.SET_NULL, verbose_name=_("role")
-    )
+    role = models.ForeignKey(to=Role, null=True, on_delete=models.SET_NULL, verbose_name=_("role"))
 
     def __str__(self):
         return f"{self.participant} | {self.role}"

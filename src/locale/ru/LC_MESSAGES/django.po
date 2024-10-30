@@ -1,0 +1,353 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-24 10:13+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: .\accounts\apps.py:7
+msgid "Authorization/authentication"
+msgstr "Авторизация/аутентификация"
+
+#: .\accounts\managers.py:16
+msgid "The Email must be set"
+msgstr "Необходимо указать адрес электронной почты"
+
+#: .\accounts\managers.py:32
+msgid "Superuser must have is_staff=True."
+msgstr "У суперпользователя должно быть значение is_staff=True."
+
+#: .\accounts\managers.py:34
+msgid "Superuser must have is_superuser=True."
+msgstr "У суперпользователя должно быть значение is_superuser=True."
+
+#: .\accounts\models\custom_user.py:15
+msgid "Email"
+msgstr "Электронная почта"
+
+#: .\accounts\models\custom_user.py:17
+msgid "Phone number"
+msgstr "Телефонный номер"
+
+#: .\accounts\models\custom_user.py:26
+msgid "User password"
+msgstr "Пароль пользователя"
+
+#: .\accounts\models\custom_user.py:31
+msgid "Code word for entry"
+msgstr "Кодовое слово для входа"
+
+#: .\accounts\serializers.py:14
+msgid "Почта"
+msgstr "Mail"
+
+#: .\accounts\serializers.py:23
+msgid "Пароль"
+msgstr "Password"
+
+#: .\accounts\serializers.py:27
+msgid "Подтверждение пароля"
+msgstr "Password confirmation"
+
+#: .\accounts\serializers.py:32
+msgid "Кодовое слово (необязательно)"
+msgstr "Code word (optional)"
+
+#: .\accounts\serializers.py:39
+msgid "Имя пользователя"
+msgstr "User name"
+
+#: .\accounts\validators.py:22
+msgid "The password must be at least 8 characters."
+msgstr "Пароль должен содержать не менее 8 символов"
+
+#: .\accounts\validators.py:26
+msgid "The password can only contain letters and numbers."
+msgstr "Пароль может содержать только буквы и цифры."
+
+#: .\accounts\validators.py:31
+msgid "The password must contain at least one capital letter."
+msgstr "Пароль должен содержать как минимум одну заглавную букву."
+
+#: .\accounts\validators.py:39
+msgid "Invalid substring found."
+msgstr "Найдена недопустимая подстрока."
+
+#: .\accounts\validators.py:45
+msgid "Age cannot be negative."
+msgstr "Возраст не может быть отрицательным."
+
+#: .\accounts\validators.py:52
+msgid "The first letter must be capitalized."
+msgstr "Первая буква должна быть заглавной."
+
+#: .\accounts\validators.py:133
+#, python-brace-format
+msgid "Invalid number format for prefix {prefix}."
+msgstr "Недопустимый числовой формат для префикса {prefix}."
+
+#: .\accounts\validators.py:138
+msgid "Incorrect number prefix."
+msgstr "Неверный префикс номера."
+
+#: .\accounts\validators.py:145
+msgid "The file size must not exceed 4MB."
+msgstr "Размер файла не должен превышать 4 МБ."
+
+#: .\accounts\validators.py:151
+msgid "Image resolution should not exceed 200x200 pixels."
+msgstr "Разрешение изображения не должно превышать 200х200 пикселей."
+
+#: .\common\apps.py:7
+msgid "Common functionality for applications"
+msgstr "Общие функциональные возможности для приложений"
+
+#: .\common\models\news.py:15
+msgid "Author"
+msgstr "Автор"
+
+#: .\common\models\news.py:17 .\common\models\useful_materials.py:6
+msgid "Title"
+msgstr "Заголовок"
+
+#: .\common\models\news.py:18 .\common\models\useful_materials.py:7
+#: .\profiles\models\profiles.py:21 .\projects\models\projects.py:25
+msgid "Description"
+msgstr "Описание"
+
+#: .\common\models\news.py:19 .\common\models\useful_materials.py:8
+msgid "Image"
+msgstr "Изображение"
+
+#: .\common\models\news.py:20 .\common\models\useful_materials.py:9
+msgid "Likes counter"
+msgstr "Счетчик лайков"
+
+#: .\common\models\news.py:21
+msgid "Is open new"
+msgstr "Открыт новый"
+
+#: .\common\models\news.py:22
+msgid "Topics"
+msgstr "Темы"
+
+#: .\common\models\news.py:24
+msgid "Tags"
+msgstr "Теги"
+
+#: .\common\models\roles.py:6
+msgid "Role name"
+msgstr "Название роли"
+
+#: .\common\models\tags.py:6
+msgid "Tag name"
+msgstr "Название тега"
+
+#: .\common\models\tools.py:6
+msgid "Tool name"
+msgstr "Название инструмента"
+
+#: .\common\models\topics.py:6
+msgid "Topic name"
+msgstr "Название темы"
+
+#: .\common\models\useful_materials.py:10
+msgid "Link name"
+msgstr "Название ссылки"
+
+#: .\core\apps.py:7
+msgid "General project utilities"
+msgstr "Главные утилиты проекта"
+
+#: .\core\views\check_system.py:29
+#: python-brace-format
+msgid "Check {item} failed."
+msgstr "Не удалось проверить {элемент}."
+
+#: .\core\views\check_system.py:30
+msgid "Successfully configured!"
+msgstr "Успешно настроен!"
+
+#: .\core\views\check_system.py:83
+msgid "Logging is not configured in the project."
+msgstr "Ведение журнала в проекте не настроено."
+
+#: .\core\views\check_system.py:84
+msgid "Logging is working!"
+msgstr "Ведение журнала работает!"
+
+#: .\core\views\check_system.py:116
+#, python-brace-format
+msgid "Module import exception: {e}"
+msgstr "Исключение при импорте модуля: {e}"
+
+#: .\core\views\check_system.py:118
+#, python-brace-format
+msgid "Logging configuration error: missing key {e}"
+msgstr "Ошибка конфигурации ведения журнала: отсутствует ключ {e}"
+
+#: .\core\views\check_system.py:120
+#, python-brace-format
+msgid "An error occurred while setting up logging: {e}"
+msgstr "При настройке ведения журнала произошла ошибка: {e}"
+
+#: .\hackathons\apps.py:7
+msgid "Everything related to hackathons"
+msgstr "Все, что связано с хакатонами"
+
+#: .\profiles\apps.py:7
+msgid "Everything related to profiles"
+msgstr "Все, что связано с профилями"
+
+#: .\profiles\models\cities.py:6
+msgid "Cities"
+msgstr "Города"
+
+#: .\profiles\models\profiles.py:14
+msgid "Name"
+msgstr "Имя"
+
+#: .\profiles\models\profiles.py:16
+msgid "Age"
+msgstr "Возраст"
+
+#: .\profiles\models\profiles.py:19
+msgid "Photo url"
+msgstr "URL-адрес фотографии"
+
+#: .\profiles\models\profiles.py:22
+msgid "Hobbies"
+msgstr "Хобби"
+
+#: .\projects\apps.py:7
+msgid "Everything related to projects"
+msgstr "Все, что связано с проектами"
+
+#: .\projects\models\groups_for_projects.py:6
+msgid "Group name"
+msgstr "Название группы"
+
+#: .\projects\models\participants_in_project.py:9
+msgid "Actual project"
+msgstr "Актуальный проект"
+
+#: .\projects\models\participants_in_project.py:12
+#: .\projects\models\project_participation_request.py:17
+msgid "Participant profile"
+msgstr "Профиль участника"
+
+#: .\projects\models\participants_in_project.py:15
+msgid "Participant roles"
+msgstr "Роли участников"
+
+#: .\projects\models\participants_in_project.py:18
+msgid "Participant tools"
+msgstr "Инструменты для участников"
+
+#: .\projects\models\participants_in_project.py:20
+msgid "Participant groups"
+msgstr "Группы участников"
+
+#: .\projects\models\project_participation_request.py:14
+msgid "Requested project"
+msgstr "Запрошенный проект"
+
+#: .\projects\models\project_participation_request.py:19
+msgid "Cover letter"
+msgstr "Сопроводительное письмо"
+
+#: .\projects\models\project_participation_request.py:20
+msgid "Resume url"
+msgstr "URL-адрес резюме"
+
+#: .\projects\models\project_participation_request.py:22
+msgid "Status the request"
+msgstr "Статус запроса"
+
+#: .\projects\models\project_types.py:6
+msgid "Type name"
+msgstr "Имя типа"
+
+#: .\projects\models\projects.py:11
+msgid "Not Started"
+msgstr "Не начато"
+
+#: .\projects\models\projects.py:12
+msgid "In Process"
+msgstr "В процессе"
+
+#: .\projects\models\projects.py:13
+msgid "Not Finished"
+msgstr "Не завершенный"
+
+#: .\projects\models\projects.py:14
+msgid "Finished"
+msgstr "Завершенный"
+
+#: .\projects\models\projects.py:21
+msgid "Type for project"
+msgstr "Тип в проекте"
+
+#: .\projects\models\projects.py:23
+msgid "Project name"
+msgstr "Имя проекта"
+
+#: .\projects\models\projects.py:24
+msgid "Core idea"
+msgstr "Основная идея"
+
+#: .\projects\models\projects.py:27
+msgid "End time for project"
+msgstr "Время окончания проекта"
+
+#: .\projects\models\projects.py:30
+msgid "Actual status"
+msgstr "Актуальный статус"
+
+#: .\projects\models\projects.py:39
+msgid "Tools for project"
+msgstr "Инструменты для проекта"
+
+#: .\projects\models\projects.py:45
+msgid "Role for project"
+msgstr "Роль в проекте"
+
+#: .\projects\models\projects.py:48
+msgid "Tags for project"
+msgstr "Теги в проекте"
+
+#: .\projects\models\projects.py:51
+msgid "Groups for project"
+msgstr "Группы в проекте"
+
+#: .\projects\models\roles_in_project.py:9
+msgid "Role"
+msgstr "Роль"
+
+#: .\projects\models\roles_in_project.py:12
+#: .\projects\models\tools_in_project.py:12
+msgid "Project"
+msgstr "Проект"
+
+#: .\projects\models\roles_in_project.py:15
+#: .\projects\models\tools_in_project.py:15
+msgid "Participants needed"
+msgstr "Необходимо участников"
+
+#: .\projects\models\tools_in_project.py:9
+msgid "Tool"
+msgstr "Инструмент"

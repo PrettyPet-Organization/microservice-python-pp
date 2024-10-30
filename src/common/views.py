@@ -4,11 +4,11 @@ from random import choice
 
 import pycountry
 import pytz
-from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
 
 # Creating a logger
 logger = logging.getLogger(__name__)
@@ -31,12 +31,8 @@ class RandomTimeView(APIView):
         logger.info("Request to get a random country and time in it.")
         random_country = choice(list(pycountry.countries))
         country_name = _(random_country.name)
-        tz_name = pytz.timezone(
-            pytz.country_timezones.get(random_country.alpha_2, [])[0]
-        )
+        tz_name = pytz.timezone(pytz.country_timezones.get(random_country.alpha_2, [])[0])
         current_time = datetime.now(tz_name)
         logger.info(f"Now in {country_name}: {current_time.strftime('%H:%M:%S')}")
 
-        return Response(
-            {"country": country_name, "time": current_time.strftime("%H:%M:%S")}
-        )
+        return Response({"country": country_name, "time": current_time.strftime("%H:%M:%S")})

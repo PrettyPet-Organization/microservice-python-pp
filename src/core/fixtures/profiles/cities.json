@@ -1,0 +1,72 @@
+[
+    {
+        "model": "profiles.city",
+        "pk": 1,
+        "fields": {
+            "city_name": "City 1 name"
+        }
+    },
+    {
+        "model": "profiles.city",
+        "pk": 2,
+        "fields": {
+            "city_name": "City 2 name"
+        }
+    },
+    {
+        "model": "profiles.city",
+        "pk": 3,
+        "fields": {
+            "city_name": "City 3 name"
+        }
+    },
+    {
+        "model": "profiles.city",
+        "pk": 4,
+        "fields": {
+            "city_name": "City 4 name"
+        }
+    },
+    {
+        "model": "profiles.city",
+        "pk": 5,
+        "fields": {
+            "city_name": "City 5 name"
+        }
+    },
+    {
+        "model": "profiles.city",
+        "pk": 6,
+        "fields": {
+            "city_name": "City 6 name"
+        }
+    },
+    {
+        "model": "profiles.city",
+        "pk": 7,
+        "fields": {
+            "city_name": "City 7 name"
+        }
+    },
+    {
+        "model": "profiles.city",
+        "pk": 8,
+        "fields": {
+            "city_name": "City 8 name"
+        }
+    },
+    {
+        "model": "profiles.city",
+        "pk": 9,
+        "fields": {
+            "city_name": "City 9 name"
+        }
+    },
+    {
+        "model": "profiles.city",
+        "pk": 10,
+        "fields": {
+            "city_name": "City 10 name"
+        }
+    }
+]

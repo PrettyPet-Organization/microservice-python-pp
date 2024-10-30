@@ -17,9 +17,11 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
-from accounts import messages
-from accounts.serializers import CustomTokenObtainPairSerializer, UserRegisterSerializer
-from settings import FAILED_LOGIN_ATTEMPTS_LIMIT
+from accounts.serializers import (
+    CustomTokenObtainPairSerializer,
+    UserRegisterSerializer,
+)
+
 
 # Creating a logger
 logger = logging.getLogger(__name__)

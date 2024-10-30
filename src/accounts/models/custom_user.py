@@ -5,7 +5,10 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from accounts.managers import CustomUserManager
-from accounts.validators import validate_password, validate_phone_number
+from accounts.validators import (
+    validate_password,
+    validate_phone_number,
+)
 
 
 class CustomUser(AbstractUser):
@@ -22,14 +25,10 @@ class CustomUser(AbstractUser):
         max_length=20,
         validators=[validate_phone_number],
     )
-    password = models.CharField(
-        verbose_name=_("User password"), validators=[validate_password], max_length=255
-    )
+    password = models.CharField(verbose_name=_("User password"), validators=[validate_password], max_length=255)
     first_name = None
     last_name = None
-    code_word = models.CharField(
-        verbose_name=_("Code word for entry"), max_length=12, blank=True
-    )
+    code_word = models.CharField(verbose_name=_("Code word for entry"), max_length=12, blank=True)
 
     objects = CustomUserManager()
 

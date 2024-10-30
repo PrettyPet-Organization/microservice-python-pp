@@ -23,9 +23,7 @@ class Project(models.Model):
     project_name = models.CharField(verbose_name=_("Project name"), max_length=100)
     core_idea = models.CharField(verbose_name=_("Core idea"), max_length=255)
     description = models.TextField(verbose_name=_("Description"))
-    finish_date = models.DateField(
-        verbose_name=_("End time for project"), null=True, blank=True
-    )
+    finish_date = models.DateField(verbose_name=_("End time for project"), null=True, blank=True)
     status = models.CharField(
         verbose_name=_("Actual status"),
         max_length=2,
@@ -44,12 +42,8 @@ class Project(models.Model):
         related_name="projects",
         verbose_name=_("Role for project"),
     )
-    tags = models.ManyToManyField(
-        to=Tag, related_name="projects", verbose_name=_("Tags for project")
-    )
-    groups = models.ManyToManyField(
-        to="Group", related_name="projects", verbose_name=_("Groups for project")
-    )
+    tags = models.ManyToManyField(to=Tag, related_name="projects", verbose_name=_("Tags for project"))
+    groups = models.ManyToManyField(to="Group", related_name="projects", verbose_name=_("Groups for project"))
 
     @property
     def is_finished(self):

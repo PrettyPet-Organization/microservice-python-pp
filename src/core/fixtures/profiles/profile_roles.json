@@ -1,0 +1,102 @@
+[
+    {
+        "model": "profiles.profilerole",
+        "pk": 1,
+        "fields": {
+            "profile": 1,
+            "role": 1,
+            "is_main": true,
+            "level": "trainee"
+        }
+    },
+    {
+        "model": "profiles.profilerole",
+        "pk": 2,
+        "fields": {
+            "profile": 1,
+            "role": 2,
+            "is_main": false,
+            "level": "intern"
+        }
+    },
+    {
+        "model": "profiles.profilerole",
+        "pk": 3,
+        "fields": {
+            "profile": 1,
+            "role": 3,
+            "is_main": false,
+            "level": "junior"
+        }
+    },
+    {
+        "model": "profiles.profilerole",
+        "pk": 4,
+        "fields": {
+            "profile": 2,
+            "role": 1,
+            "is_main": false,
+            "level": "middle"
+        }
+    },
+    {
+        "model": "profiles.profilerole",
+        "pk": 5,
+        "fields": {
+            "profile": 2,
+            "role": 2,
+            "is_main": false,
+            "level": "senior"
+        }
+    },
+    {
+        "model": "profiles.profilerole",
+        "pk": 6,
+        "fields": {
+            "profile": 2,
+            "role": 3,
+            "is_main": true,
+            "level": "trainee"
+        }
+    },
+    {
+        "model": "profiles.profilerole",
+        "pk": 7,
+        "fields": {
+            "profile": 3,
+            "role": 1,
+            "is_main": true,
+            "level": "trainee"
+        }
+    },
+    {
+        "model": "profiles.profilerole",
+        "pk": 8,
+        "fields": {
+            "profile": 3,
+            "role": 2,
+            "is_main": false,
+            "level": "junior"
+        }
+    },
+    {
+        "model": "profiles.profilerole",
+        "pk": 9,
+        "fields": {
+            "profile": 3,
+            "role": 3,
+            "is_main": false,
+            "level": "intern"
+        }
+    },
+    {
+        "model": "profiles.profilerole",
+        "pk": 10,
+        "fields": {
+            "profile": 4,
+            "role": 1,
+            "is_main": true,
+            "level": "junior"
+        }
+    }
+]

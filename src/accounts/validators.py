@@ -2,7 +2,6 @@ import re
 
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
-from PIL import Image
 
 
 # Checking for a sequence of characters on one keyboard line
@@ -27,9 +26,7 @@ def validate_password(value):
 
     # Checking for at least one capital letter
     if not re.search("[A-Z]", value):
-        raise ValidationError(
-            _("The password must contain at least one capital letter.")
-        )
+        raise ValidationError(_("The password must contain at least one capital letter."))
 
     # Substrings of 4 characters
     substrings = [value[i : i + 4] for i in range(len(value) - 3)]
@@ -37,19 +34,6 @@ def validate_password(value):
     # Checking whether the correct sequence is found
     if any(in_keyboard(sub.lower()) for sub in substrings):
         raise ValidationError(_("Invalid substring found."))
-
-
-# Age validation
-def validate_age(value: int):
-    if value < 0:
-        raise ValidationError(_("Age cannot be negative."))
-
-
-# City validation
-def validate_city(value: str):
-    # Checking whether the value is empty and contains a capital letter
-    if value and not value[0].isupper():
-        raise ValidationError(_("The first letter must be capitalized."))
 
 
 def validate_phone_number(phone_number: str):
@@ -129,23 +113,8 @@ def validate_phone_number(phone_number: str):
                 local_number = phone_number[len(prefix) :]
                 match = re.fullmatch(pattern=regex, string=local_number)
                 if not match:
-                    raise ValidationError(
-                        _(f"Invalid number format for prefix {prefix}.")
-                    )
+                    raise ValidationError(_(f"Invalid number format for prefix {prefix}."))
                 return
 
     # If no prefix matches
     raise ValidationError(_("Incorrect number prefix."))
-
-
-def validate_image(image):
-    # Checking file size
-    filesize = image.file.size
-    if filesize > 4 * 1024 * 1024:  # 4 MB
-        raise ValidationError(_("The file size must not exceed 4MB."))
-
-    # Checking image resolution
-    img = Image.open(image)
-    width, height = img.size
-    if width > 200 or height > 200:
-        raise ValidationError(_("Image resolution should not exceed 200x200 pixels."))

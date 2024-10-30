@@ -15,12 +15,11 @@ from settings import (
     SMTP_SERVER,
 )
 
+
 logger = logging.getLogger(__name__)
 
 
-def create_and_send_email(
-    send_to: str, template_name: str, context: dict, subject: str
-):
+def create_and_send_email(send_to: str, template_name: str, context: dict, subject: str):
     """
     Creates the body of an email based on the context and template, and sends it using the configured SMTP server
     in the background to avoid blocking the calling code.
@@ -36,17 +35,13 @@ def create_and_send_email(
             email = _create_email(context, send_to, subject, template_name)
             _send_mail(email, send_to)
         except Exception as error:
-            logger.error(
-                f"Couldn't send email to {send_to=} with context {context=}, error occurred: {error}"
-            )
+            logger.error(f"Couldn't send email to {send_to=} with context {context=}, error occurred: {error}")
 
     email_thread = threading.Thread(target=send_email_in_thread)
     email_thread.start()
 
 
-def _create_email(
-    context: dict, send_to: str, subject: str, template_name: str
-) -> MIMEMultipart:
+def _create_email(context: dict, send_to: str, subject: str, template_name: str) -> MIMEMultipart:
     """Creates an email for sending based on the provided text and template."""
 
     msg = MIMEMultipart("alternative")
@@ -65,8 +60,6 @@ def _send_mail(email: MIMEMultipart, send_to: str):
     """Sends the email using the SMTP server specified in the configuration."""
 
     context = ssl.create_default_context()
-    with smtplib.SMTP_SSL(
-        SMTP_SERVER, SMTP_PORT, context=context, timeout=EMAIL_TIMEOUT
-    ) as server:
+    with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT, context=context, timeout=EMAIL_TIMEOUT) as server:
         server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
         server.sendmail(EMAIL_ADDRESS, send_to, email.as_string())

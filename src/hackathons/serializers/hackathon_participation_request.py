@@ -1,8 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from hackathons.models.hackathon_participation_request import (
-    HackathonParticipationRequest,
-)
+from hackathons.models.hackathon_participation_request import HackathonParticipationRequest
 
 
 class HackathonParticipationRequestSerializer(ModelSerializer):

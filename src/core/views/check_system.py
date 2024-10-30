@@ -1,12 +1,16 @@
 import inspect
 import logging.config
-from functools import wraps
+from typing import (
+    Any,
+    Optional,
+)
 
-from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
+from core.utils import check_method
 
 
 class CheckSystem(APIView):
@@ -17,73 +21,25 @@ class CheckSystem(APIView):
     Uses a decorator to execute checks and handle error and success messages.
     """
 
-    def __init__(self, **kwargs):
+    def __init__(self, **kwargs: Any) -> None:
         """
-        Initializes the CheckSystem class.
+        The CheckSystem constructor.
 
         Sets default values for error and success messages and initializes an empty dictionary for storing
         data.
         """
 
         super().__init__(**kwargs)
-        self.DEFAULT_ERROR_MESSAGE: str = _("Check {item} failed.")
-        self.DEFAULT_SUCCESS_MESSAGE: str = _("Successfully configured!")
-        self.data: dict = {}
+        self.DEFAULT_ERROR_MESSAGE = _("Check {item} failed.")
+        self.DEFAULT_SUCCESS_MESSAGE = _("Successfully configured!")
+        self.data: dict[str, Any] = {}
 
-    @staticmethod
-    def _check_method(
-        data_item_name: str, error_message: str = None, success_message: str = None
-    ):
-        """
-        Decorator for checking methods.
-
-        Uses the provided check method to perform a check, marks the wrapper method with a custom attribute. If the
-        check fails, raises an exception with the specified error message or a default message. Updates the `self.data`
-        dictionary with the success message if the check passes.
-
-        :param data_item_name: Name of the data item to store in `self.data`.
-        :type data_item_name: str
-        :param error_message: Error message to raise if the check fails. Defaults to None.
-        :type error_message: str
-        :param success_message: Success message to store in `self.data`. Defaults to None.
-        :type success_message: str
-
-        :return: Decorated method that performs the check and updates `self.data`.
-        :rtype: function
-
-        :raises Exception: If the check method fails.
-        """
-
-        def decorator(check_method):
-            @wraps(check_method)
-            def wrapper(self):
-                if not check_method(self):
-                    # If the error message is not specified, uses the default
-                    raise Exception(
-                        error_message
-                        if error_message
-                        else self.DEFAULT_ERROR_MESSAGE.format(
-                            item=check_method.__name__
-                        )
-                    )
-
-                # If the success message is not specified, uses the default
-                self.data[data_item_name] = (
-                    success_message if success_message else self.DEFAULT_SUCCESS_MESSAGE
-                )
-
-            # Marks the wrapper method with a custom attribute
-            wrapper.__is_check_method__ = True
-            return wrapper
-
-        return decorator
-
-    @_check_method(
+    @check_method(
         data_item_name="logs",
         error_message=_("Logging is not configured in the project."),
         success_message=_("Logging is working!"),
     )
-    def check_logs(self) -> bool:
+    def check_logs(self) -> Optional[bool]:
         """
         Checks the logging configuration.
 
@@ -92,7 +48,6 @@ class CheckSystem(APIView):
         exceptions that may occur during the setup.
 
         :return: True if logging is configured correctly, False otherwise.
-        :rtype: bool
 
         :raises ImportError: If the logging.config module could not be imported.
         :raises KeyError: If a required key is missing from the logging configuration.
@@ -100,8 +55,6 @@ class CheckSystem(APIView):
         """
 
         try:
-            logging_conf = settings.LOGGING
-            logging.config.dictConfig(logging_conf)
             logger = logging.getLogger(__name__)
 
             logger.debug("example DEBUG message")
@@ -124,13 +77,11 @@ class CheckSystem(APIView):
         Performs all checks and returns their results as a JSON response.
 
         :param request: The rest_framework Request object.
-        :type request: Request
 
         :return: Response with the results of all checks.
-        :rtype: Response
         """
 
-        # Finds all methods that are checks (decorated with _check_method)
+        # Finds all methods that are checks (decorated with check_method)
         checks = [
             method
             for name, method in inspect.getmembers(self, predicate=inspect.ismethod)

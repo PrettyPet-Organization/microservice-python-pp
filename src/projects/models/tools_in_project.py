@@ -5,6 +5,9 @@ from common.models.tools import Tool
 
 
 class ToolsInProject(models.Model):
+    participant = models.ForeignKey(
+        to="ParticipantInProject", on_delete=models.CASCADE, verbose_name=_("Participant")
+    )
     tool = models.ForeignKey(
         to=Tool, on_delete=models.SET_NULL, null=True, verbose_name=_("Tool")
     )

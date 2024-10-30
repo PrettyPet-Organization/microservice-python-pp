@@ -2,7 +2,10 @@ from django.test import TestCase
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from rest_framework import status
-from rest_framework.test import APIClient, APITestCase
+from rest_framework.test import (
+    APIClient,
+    APITestCase,
+)
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from accounts import messages
@@ -46,15 +49,11 @@ class UserRegistrationTest(TestCase):
         """Test success registration user"""
         response = self.client.post(self.url, self.valid_data, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertTrue(
-            CustomUser.objects.filter(email=self.valid_data["email"]).exists()
-        )
+        self.assertTrue(CustomUser.objects.filter(email=self.valid_data["email"]).exists())
 
     def test_registration_with_mismatched_passwords(self):
         """Test registration with mismatched passwords"""
-        response = self.client.post(
-            self.url, self.invalid_data_password_mismatch, format="json"
-        )
+        response = self.client.post(self.url, self.invalid_data_password_mismatch, format="json")
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
         self.assertIn(
@@ -75,9 +74,7 @@ class UserRegistrationTest(TestCase):
             format="json",
         )
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.assertIn(
-            _(messages.NOT_UNIQUE_EMAIL_ERROR_MESSAGE), response.data["email"]
-        )
+        self.assertIn(_(messages.NOT_UNIQUE_EMAIL_ERROR_MESSAGE), response.data["email"])
 
     def test_registration_with_code_word(self):
         """Test registration with code word"""

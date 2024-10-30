@@ -1,13 +1,9 @@
 from hackathons.models.groups_for_hackathons import GroupsForHackathon
 from hackathons.models.groups_in_hackathon import GroupsInHackathon
-from hackathons.models.hackathon_participation_request import (
-    HackathonParticipationRequest,
-)
+from hackathons.models.hackathon_participation_request import HackathonParticipationRequest
 from hackathons.models.hackathon_prizes import HackathonPrizes
 from hackathons.models.hackathons import Hackathon
-from hackathons.models.participant_in_hackathon_groups import (
-    ParticipantInHackathonGroups,
-)
+from hackathons.models.participant_in_hackathon_groups import ParticipantInHackathonGroups
 from hackathons.models.participant_in_hackathon_roles import ParticipantInHackathonRoles
 from hackathons.models.participant_in_hackathon_tools import ParticipantInHackathonTools
 from hackathons.models.participants_in_hackathon import ParticipantsInHackathon

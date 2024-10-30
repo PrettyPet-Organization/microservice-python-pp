@@ -11,9 +11,7 @@ class ParticipantInHackathonTools(models.Model):
         on_delete=models.CASCADE,
         verbose_name=_("participant id"),
     )
-    tool = models.ForeignKey(
-        to=Tool, null=True, on_delete=models.SET_NULL, verbose_name=_("tool")
-    )
+    tool = models.ForeignKey(to=Tool, null=True, on_delete=models.SET_NULL, verbose_name=_("tool"))
 
     def __str__(self):
         return f"{self.participant} | {self.tool}"

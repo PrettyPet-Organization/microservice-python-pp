@@ -1,0 +1,10 @@
+[tool.black]
+line-length = 120                      # Maximum line length
+
+[tool.isort]
+extend_skip_glob = ["*/migrations/*"]  # Ignore Django migration files
+force_grid_wrap = 2                    # Disable automatic row wrapping
+include_trailing_comma = true          # Add a comma after the last element in parentheses
+line_length = 120                      # Maximum line length (recommended for Black compatibility)
+lines_after_imports = 2                # Number of blank lines to leave after imports
+multi_line_output = 3                  # Use import format with hyphens in parentheses

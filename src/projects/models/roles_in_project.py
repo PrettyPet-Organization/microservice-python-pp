@@ -5,6 +5,9 @@ from common.models.roles import Role
 
 
 class RolesInProject(models.Model):
+    participant = models.ForeignKey(
+        to="ParticipantInProject", on_delete=models.CASCADE, verbose_name=_("Participant")
+    )
     role = models.ForeignKey(
         to=Role, on_delete=models.SET_NULL, null=True, verbose_name=_("Role")
     )

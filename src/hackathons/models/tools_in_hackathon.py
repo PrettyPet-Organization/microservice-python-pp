@@ -6,12 +6,8 @@ from hackathons.models.hackathons import Hackathon
 
 
 class ToolsInHackathon(models.Model):
-    hackathon = models.ForeignKey(
-        to=Hackathon, null=True, on_delete=models.SET_NULL, verbose_name=_("hackathon")
-    )
-    tool = models.ForeignKey(
-        to=Tool, null=True, on_delete=models.SET_NULL, verbose_name=_("tool")
-    )
+    hackathon = models.ForeignKey(to=Hackathon, null=True, on_delete=models.SET_NULL, verbose_name=_("hackathon"))
+    tool = models.ForeignKey(to=Tool, null=True, on_delete=models.SET_NULL, verbose_name=_("tool"))
     participants_needed = models.IntegerField(
         default=None, blank=True, null=True, verbose_name=_("participants needed")
     )

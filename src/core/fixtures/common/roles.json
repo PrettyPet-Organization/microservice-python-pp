@@ -1,0 +1,72 @@
+[
+    {
+        "model": "common.role",
+        "pk": 1,
+        "fields": {
+            "role_name": "Backend Developer"
+        }
+    },
+    {
+        "model": "common.role",
+        "pk": 2,
+        "fields": {
+            "role_name": "Frontend Developer"
+        }
+    },
+    {
+        "model": "common.role",
+        "pk": 3,
+        "fields": {
+            "role_name": "Fullstack Developer"
+        }
+    },
+    {
+        "model": "common.role",
+        "pk": 4,
+        "fields": {
+            "role_name": "Designer"
+        }
+    },
+    {
+        "model": "common.role",
+        "pk": 5,
+        "fields": {
+            "role_name": "Project Manager"
+        }
+    },
+    {
+        "model": "common.role",
+        "pk": 6,
+        "fields": {
+            "role_name": "Scrum Master"
+        }
+    },
+    {
+        "model": "common.role",
+        "pk": 7,
+        "fields": {
+            "role_name": "DevOps"
+        }
+    },
+    {
+        "model": "common.role",
+        "pk": 8,
+        "fields": {
+            "role_name": "QA"
+        }
+    },
+    {
+        "model": "common.role",
+        "pk": 9,
+        "fields": {
+            "role_name": "Product Owner"
+        }
+    },
+    {
+        "model": "common.role",
+        "pk": 10,
+        "fields": {
+            "role_name": "Team Lead"
+        }
+    }
+]

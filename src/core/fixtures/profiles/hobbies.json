@@ -1,0 +1,72 @@
+[
+    {
+        "model": "profiles.hobby",
+        "pk": 1,
+        "fields": {
+            "hobby_name": "Hobby 1 name"
+        }
+    },
+    {
+        "model": "profiles.hobby",
+        "pk": 2,
+        "fields": {
+            "hobby_name": "Hobby 2 name"
+        }
+    },
+    {
+        "model": "profiles.hobby",
+        "pk": 3,
+        "fields": {
+            "hobby_name": "Hobby 3 name"
+        }
+    },
+    {
+        "model": "profiles.hobby",
+        "pk": 4,
+        "fields": {
+            "hobby_name": "Hobby 4 name"
+        }
+    },
+    {
+        "model": "profiles.hobby",
+        "pk": 5,
+        "fields": {
+            "hobby_name": "Hobby 5 name"
+        }
+    },
+    {
+        "model": "profiles.hobby",
+        "pk": 6,
+        "fields": {
+            "hobby_name": "Hobby 6 name"
+        }
+    },
+    {
+        "model": "profiles.hobby",
+        "pk": 7,
+        "fields": {
+            "hobby_name": "Hobby 7 name"
+        }
+    },
+    {
+        "model": "profiles.hobby",
+        "pk": 8,
+        "fields": {
+            "hobby_name": "Hobby 8 name"
+        }
+    },
+    {
+        "model": "profiles.hobby",
+        "pk": 9,
+        "fields": {
+            "hobby_name": "Hobby 9 name"
+        }
+    },
+    {
+        "model": "profiles.hobby",
+        "pk": 10,
+        "fields": {
+            "hobby_name": "Hobby 10 name"
+        }
+    }
+]

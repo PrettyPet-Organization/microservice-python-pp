@@ -13,6 +13,7 @@ import os
 from django.conf import settings
 from django.core.wsgi import get_wsgi_application
 
+
 logging_conf = settings.LOGGING
 logging.config.dictConfig(logging_conf)
 logger = logging.getLogger(__name__)
