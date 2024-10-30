@@ -1,5 +1,11 @@
+import datetime
 import logging
 
+from celery import shared_task
+from django.conf import settings
+from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import extend_schema
 from rest_framework import permissions, status
@@ -167,3 +173,70 @@ class CustomTokenBlacklistView(TokenBlacklistView):
             logger.warning(f"Logout failed with response: {response.data}.")
 
         return response
+
+
+@shared_task
+def send_email_survey_about_the_platform():
+
+    try:
+        users = User.objects.all()
+        for user in users:
+            subject = "Опрос о платформе Pretty Pet"
+            time_difference = datetime.datetime.now() - user.customuser.date_joined
+            if time_difference >= datetime.timedelta(hours=24):
+                if (
+                    user.customuser.confirmed_form_about_platform
+                ):  # We check whether the user has sent a request
+                    message = (
+                        "Привет, {}!\n\n"
+                        "Спасибо, что присоединился к нашей платформе! "
+                        "Поделись своим первым впечатлением, ответив на пару вопросов: "
+                        "[Ссылка на анкету]"
+                    ).format(user.customuser.username)
+                    user.customuser.confirmed_form_about_platform == True
+                    user.customuser.save()
+                else:
+                    message = (
+                        "Привет, {}!\n\n"
+                        "Приглашаем тебя подать заявку на участие в нашей платформе! "
+                        "Это займет всего несколько минут: [Ссылка на заявку]"
+                    ).format(user.customuser.username)
+
+                from_email = settings.EMAIL_HOST_USER
+                recipient_list = [user.customuser.email]
+                send_mail(
+                    subject,
+                    message,
+                    from_email,
+                    recipient_list,
+                    fail_silently=False,
+                )
+
+        return status.HTTP_200_OK
+    except Exception as er:
+        return status.HTTP_400_BAD_REQUEST
+
+
+class EmailAPIView(APIView):
+    """
+    Processes a POST request to email send.
+
+    Args:
+        request (Request): The HTTP request start email send.
+
+    Returns:
+        Response: HTTP 200 if send email.
+    """
+
+    def post(self, request):
+        email_send = send_email_survey_about_the_platform.delay()
+        if email_send == status.HTTP_200_OK:
+            return Response(
+                {"status": "success", "message": f"Ok. {status.HTTP_200_OK}"},
+                status=status.HTTP_200_OK,
+            )
+        else:
+            return Response(
+                {"status": "error", "message": f"Error: {status.HTTP_400_BAD_REQUEST}"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
