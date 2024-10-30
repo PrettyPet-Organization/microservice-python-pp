@@ -33,9 +33,7 @@ class CustomUser(AbstractUser):
 
     objects = CustomUserManager()
 
-    confirmed_form_about_platform = models.BooleanField(
-        default=False, blank=True, null=True
-    )
+    confirmed_form_about_platform = models.BooleanField(default=False, blank=True, null=True)
 
     # Set the code word
     def set_code_word(self, code_word):

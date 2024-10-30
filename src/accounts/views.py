@@ -1,11 +1,6 @@
 import datetime
 import logging
 
-from celery import shared_task
-from django.conf import settings
-from django.contrib.auth.models import User
-from django.core.mail import send_mail
-from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import extend_schema
 from rest_framework import permissions, status
@@ -20,6 +15,11 @@ from rest_framework_simplejwt.views import (
 from accounts import messages
 from accounts.serializers import CustomTokenObtainPairSerializer, UserRegisterSerializer
 from settings import FAILED_LOGIN_ATTEMPTS_LIMIT
+from django.shortcuts import render
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib.auth.models import User
+from celery import shared_task
 
 # Creating a logger
 logger = logging.getLogger(__name__)
@@ -184,9 +184,7 @@ def send_email_survey_about_the_platform():
             subject = "Опрос о платформе Pretty Pet"
             time_difference = datetime.datetime.now() - user.customuser.date_joined
             if time_difference >= datetime.timedelta(hours=24):
-                if (
-                    user.customuser.confirmed_form_about_platform
-                ):  # We check whether the user has sent a request
+                if user.customuser.confirmed_form_about_platform: #We check whether the user has sent a request
                     message = (
                         "Привет, {}!\n\n"
                         "Спасибо, что присоединился к нашей платформе! "
@@ -227,16 +225,12 @@ class EmailAPIView(APIView):
     Returns:
         Response: HTTP 200 if send email.
     """
-
     def post(self, request):
         email_send = send_email_survey_about_the_platform.delay()
         if email_send == status.HTTP_200_OK:
-            return Response(
-                {"status": "success", "message": f"Ok. {status.HTTP_200_OK}"},
-                status=status.HTTP_200_OK,
-            )
+            return Response({"status": "success", "message": f"Ok. {status.HTTP_200_OK}"}, status=status.HTTP_200_OK)
         else:
-            return Response(
-                {"status": "error", "message": f"Error: {status.HTTP_400_BAD_REQUEST}"},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
+            return Response({"status": "error", "message": f"Error: {status.HTTP_400_BAD_REQUEST}"},
+                            status=status.HTTP_400_BAD_REQUEST)
+
+
