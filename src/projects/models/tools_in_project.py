@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from common.models.tools import Tool
+from .participants_in_project import ParticipantInProject
 
 
 class ToolsInProject(models.Model):
@@ -17,3 +18,4 @@ class ToolsInProject(models.Model):
     participants_needed = models.PositiveIntegerField(
         null=True, blank=True, verbose_name=_("Participants needed")
     )
+    
