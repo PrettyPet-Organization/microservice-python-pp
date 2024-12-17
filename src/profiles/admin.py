@@ -22,7 +22,6 @@ class AdminProfile(admin.ModelAdmin):
     list_display = (
         "user",
         "public_name",
-        "age",
         "city__city_name",
         "photo_url",
     )
@@ -31,7 +30,7 @@ class AdminProfile(admin.ModelAdmin):
         "public_name",
         "city__city_name",
     )
-    list_filter = ("city", "age")
+    list_filter = ("city",)
 
     readonly_fields = ("photo_url",)
 
